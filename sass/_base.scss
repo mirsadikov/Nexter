@@ -48,6 +48,7 @@ body {
 .container {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  grid-template-rows: calc(var(--vh, 1vh) * 80) min-content 40vw repeat(3, min-content);
   grid-template-columns:
     [sidebar-start] 8rem [sidebar-end full-start]
     minmax(6rem, 1fr) [center-start]
@@ -63,6 +64,8 @@ body {
 
   @media only screen and (max-width: $bp-large) {
     grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-rows: 6rem calc(var(--vh, 1vh) * 80) min-content 40vw repeat(3, min-content);
+
     grid-template-columns:
       [full-start]
       minmax(6rem, 1fr) [center-start]
@@ -72,5 +75,6 @@ body {
 
   @media only screen and (max-width: $bp-medium) {
     grid-template-rows: 6rem calc(100vh - 6rem);
+    grid-template-rows: 6rem calc((var(--vh, 1vh) * 100) - 6rem);
   }
 }
